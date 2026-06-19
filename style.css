@@ -1,0 +1,518 @@
+:root {
+    --color-main: #46487c;
+    --color-accent: #6167ee;
+    --color-accent-light: #258dec;
+
+    --color-text: #222;
+    --color-bg: #fff;
+
+    --color-link: #f14974;
+    
+    --header-height: 80px;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, .08);
+
+    --transition: .3s ease;
+}
+
+/* =========================
+   Base
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding-top: var(--header-height);
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-family: sans-serif;
+    font-size: clamp(14px, 1vw, 18px);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.container {
+    width: min(1100px, 90%);
+    margin-inline: auto;
+}
+
+.section {
+    padding-top:40px;
+    padding-bottom: 120px;
+}
+
+.section-alt {
+    background:
+        linear-gradient(180deg,
+            #fff,
+            #f7fbff);
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    position: fixed;
+    inset: 0 0 auto 0;
+
+    height: var(--header-height);
+
+    z-index: 9999;
+
+    background: rgba(255, 255, 255, .9);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom:
+        1px solid rgba(0, 0, 0, .06);
+}
+
+.header-inner {
+    width: min(1200px, 92%);
+    min-height: 80px;
+    padding-block: 12px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.logo-subtitle {
+    margin: 0;
+    font-size: .8rem;
+    color: var(--color-accent);
+    letter-spacing: .08em;
+    line-height: 1.4;
+}
+
+.logo-title {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--color-main);
+    line-height: 1.25;
+}
+
+.logo-highlight {
+    color: var(--color-main);
+}
+
+/* =========================
+   Navigation
+========================= */
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list a {
+    position: relative;
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.nav-list a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0%;
+    height: 2px;
+
+    background: var(--color-accent);
+
+    transition: var(--transition);
+}
+
+.nav-list a:hover {
+    color: var(--color-accent);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   Hamburger
+========================= */
+
+.hamburger {
+    display: none;
+
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    padding: 10px 6px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-main);
+
+    transition: var(--transition);
+}
+
+@media (max-width: 1200px) {
+    .header-inner {
+        width: min(100% - 32px, 1200px);
+    }
+
+    .logo {
+        max-width: calc(100% - 56px);
+    }
+
+    .hamburger {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .nav {
+        position: fixed;
+
+        top: var(--header-height, 80px);
+        right: -100%;
+
+        width: min(82vw, 320px);
+        height: calc(100svh - var(--header-height, 80px));
+
+        background: white;
+
+        box-shadow: var(--shadow);
+
+        transition: var(--transition);
+        overflow-y: auto;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav-list {
+        padding: 2rem;
+
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+}
+
+/* =========================
+   Section
+========================= */
+
+.section-heading {
+    margin-bottom: 3rem;
+}
+
+.section-label {
+    color: var(--color-accent);
+
+    font-size: .85rem;
+    font-weight: 700;
+
+    letter-spacing: .15em;
+}
+
+.section-title {
+    display: inline-block;
+
+    margin: .3em 0;
+
+    font-size:
+        clamp(2rem, 4vw, 3rem);
+
+    background:
+        linear-gradient(transparent 75%,
+            color-mix(in srgb, var(--color-accent-light), #fff 80%) 75%);
+}
+
+.section-text {
+    font-size: 1rem;
+}
+
+.section-text a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.section-text a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+/* =========================
+   To Top
+========================= */
+
+.to-top-btn {
+    position: fixed;
+    /* ◀ 画面に固定する設定 */
+
+    left: auto;
+    /* ◀ 左隅に引っ張られるのを強制リセット */
+    right: 24px;
+    /* ◀ 右からの位置 */
+    bottom: 24px;
+    /* ◀ 下からの位置 */
+
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-main);
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+
+    z-index: 9999;
+    /* ◀ 他のコンテンツ（背景など）の下に隠れるのを防ぐ */
+}
+
+.to-top-icon {
+    width: 16px;
+    height: 16px;
+
+    border-top: 3px solid currentColor;
+    border-left: 3px solid currentColor;
+
+    transform: translateY(4px) rotate(45deg);
+}
+
+.to-top-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.to-top-btn:hover {
+    transform: translateY(-4px);
+}
+
+@media (max-width: 640px) {
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        width: min(100% - 32px, 1100px);
+    }
+
+    .section {
+        padding-top: 24px;
+        padding-bottom: 72px;
+    }
+
+    .section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .logo-subtitle {
+        font-size: .68rem;
+        letter-spacing: .04em;
+    }
+
+    .logo-title {
+        font-size: clamp(1rem, 5vw, 1.35rem);
+    }
+
+    .hero-content {
+        width: min(100% - 32px, 1100px);
+        padding-block: 56px 88px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.4rem, 14vw, 4rem);
+    }
+
+    .hero-description {
+        font-size: .95rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 9vw, 2.4rem);
+    }
+
+    .to-top-btn {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 420px) {
+    .header-inner {
+        width: min(100% - 24px, 1200px);
+        min-height: 72px;
+    }
+
+    .nav-list {
+        padding: 1.5rem;
+    }
+
+    .container,
+    .hero-content {
+        width: min(100% - 24px, 1100px);
+    }
+
+    .section {
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ==========================================================================
+   Contents Sections (Cards & Buttons)
+   ========================================================================== */
+
+/* カードを並べるグリッド（スマホでは1列、PCでは2列） */
+.contents-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .contents-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* カード全体のデザイン */
+.contents-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contents-card:hover:not(.is-disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* カード内のテキスト */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #333333;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* ボタンの位置を下部に揃える */
+}
+
+/* ボタンのデザイン */
+.card-btn {
+    display: block;
+    text-align: center;
+    background-color: #0076df;
+    /* サイトのテーマカラーに合わせて調整してください */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.card-btn:hover {
+    background-color: #0056a3;
+}
+
+/* 準備中のコンテンツ用（グレーアウト） */
+.contents-card.is-disabled {
+    background-color: #f5f5f5;
+    border-color: #dddddd;
+    opacity: 0.7;
+}
+
+.contents-card.is-disabled .card-btn {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+}

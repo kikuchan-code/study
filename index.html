@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Google Search Console-->
+
+    <title>教材置き場</title>
+
+    <meta name="description" content="高専生のための教材置き場。学習に役立つコンテンツを順次追加していきます。">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="header">
+
+        <div class="header-inner">
+
+            <a href="#home" class="logo">
+
+                <p class="logo-subtitle">
+                    高専生の基礎学習をサポート
+                </p>
+
+                <h1 class="logo-title">
+                    教材置き場
+                </h1>
+
+            </a>
+
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation -->
+            <nav class="nav" id="nav">
+
+                <ul class="nav-list">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#contents">学習コンテンツ一覧</a></li>
+                    <!--<li><a href="#information">お知らせ</a></li>-->
+                    <!--<li><a href="#developer">ポートフォリオ</a></li>-->
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+    <!-- =========================
+         Main
+    ========================== -->
+    <main>
+
+        <!-- Home -->
+        <section class="section section-alt" id="home">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label"> HOME </p>
+                    <h2 class="section-title"> 教材置き場 </h2>
+                </div>
+                <div class="section-content">
+                    <p class="section-text"> 高専生の基礎学習をサポートする教材を公開しています。<br> 現在は有機化学クイズを公開中です。 </p>
+                </div>
+            </div>
+        </section> <!-- Contents -->
+        <section class="section" id="contents">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label"> CONTENTS </p>
+                    <h2 class="section-title"> 学習コンテンツ一覧 </h2>
+                </div>
+                <div class="section-content">
+                    <div class="contents-grid">
+                        <div class="contents-card">
+                            <h3 class="card-title">【化学2】有機化学クイズ</h3>
+                            <p class="card-description"> ブラウザで手軽に挑戦！基礎から学べる有機化学のクイズです。 </p> <a
+                                href="./Works/chemistry.html" class="card-btn"> クイズに挑戦する </a>
+                        </div>
+                        <div class="contents-card is-disabled">
+                            <h3 class="card-title">準備中</h3>
+                            <p class="card-description"> 今後さまざまな教材を追加予定です。 頑張ります！</p> <a href="#" class="card-btn"
+                                onclick="return false;"> 準備中 </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        <section class="section" id="information">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        INFORMATION
+                    </p>
+
+                    <h2 class="section-title">
+                        お知らせ
+                    </h2>
+
+                </div>
+
+                <div class="section-content">
+
+                    <p class="section-text">
+                        しばらくお待ちください。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+-->
+
+        <!-- 
+        <section class="section" id="developer">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        PORTFOLIO
+                    </p>
+
+                    <h2 class="section-title">
+                        ポートフォリオ
+                    </h2>
+
+                </div>
+
+                <div class="section-content">
+
+                    <p class="section-text">
+                        　このサイトの運営者のポートフォリオです。<br>
+                        ポートフォリオは<a href="portfolio.html">こちら</a>です。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+ -->
+
+    </main>
+
+    <!-- =========================
+         To Top Button
+    ========================== -->
+    <button id="toTopBtn" class="to-top-btn" title="上へ戻る">
+        <span aria-hidden="true" class="to-top-icon"></span>
+    </button>
+
+    <!-- =========================
+         Scripts
+    ========================== -->
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>
