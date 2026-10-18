@@ -606,7 +606,6 @@ h1.section-title {
 
 /* FAQ */
 .faq-list {
-    max-width: 800px;
     display: grid;
     gap: 12px;
 }
