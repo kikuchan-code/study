@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://study.kikuchan-code.workers.dev/sitemap.xml

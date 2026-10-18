@@ -2,7 +2,9 @@
 // アンカースクロール
 // ==========================================
 
-const HEADER_HEIGHT = 80;
+const HEADER_HEIGHT =
+  parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--header-height'), 10) || 80;
 
 function scrollWithOffset(targetId) {
   const target = document.querySelector(targetId);
@@ -41,17 +43,25 @@ const hamburger = document.getElementById('hamburger');
 function closeMenu() {
   nav?.classList.remove('active');
   hamburger?.classList.remove('open');
+  hamburger?.setAttribute('aria-expanded', 'false');
+  hamburger?.setAttribute('aria-label', 'メニューを開く');
 }
 
 hamburger?.addEventListener('click', (e) => {
   e.stopPropagation();
 
-  nav?.classList.toggle('active');
-  hamburger.classList.toggle('open');
+  const isOpen = nav?.classList.toggle('active');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', String(!!isOpen));
+  hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
 });
 
 nav?.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') {
+  if (e.target.closest('a')) {
     closeMenu();
   }
 });

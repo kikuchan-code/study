@@ -1,6 +1,6 @@
 :root {
     --color-main: #46487c;
-    --color-accent: #6167ee;
+    --color-accent: #4f55d8;
     --color-accent-light: #258dec;
 
     --color-text: #222;
@@ -36,7 +36,7 @@ body {
     padding-top: var(--header-height);
     color: var(--color-text);
     background: var(--color-bg);
-    font-family: sans-serif;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
     font-size: clamp(14px, 1vw, 18px);
     line-height: 1.8;
     overflow-x: hidden;
@@ -117,6 +117,7 @@ ul {
 }
 
 .logo-subtitle {
+    display: block;
     margin: 0;
     font-size: .8rem;
     color: var(--color-accent);
@@ -125,6 +126,8 @@ ul {
 }
 
 .logo-title {
+    display: block;
+    font-weight: 700;
     margin: 0;
     font-size: 1.8rem;
     color: var(--color-main);
@@ -281,11 +284,10 @@ ul {
 
 .section-title {
     display: inline-block;
+    font-size: clamp(1.4rem, 5vw, 3rem);
+    overflow-wrap: anywhere;
 
     margin: .3em 0;
-
-    font-size:
-        clamp(2rem, 4vw, 3rem);
 
     background:
         linear-gradient(transparent 75%,
@@ -359,7 +361,7 @@ ul {
     transform: translateY(-4px);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
     body {
         font-size: 15px;
     }
@@ -509,10 +511,432 @@ ul {
 .contents-card.is-disabled {
     background-color: #f5f5f5;
     border-color: #dddddd;
-    opacity: 0.7;
 }
 
 .contents-card.is-disabled .card-btn {
     background-color: #aaaaaa;
     cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SEO / Accessibility additions
+   ========================================================================== */
+
+/* スキップリンク */
+.skip-link {
+    position: absolute;
+    left: 8px;
+    top: -100px;
+    z-index: 10000;
+    padding: 8px 16px;
+    background: var(--color-main);
+    color: #fff;
+    border-radius: 0 0 6px 6px;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* キーボード操作時のフォーカス表示 */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--color-accent-light);
+    outline-offset: 3px;
+}
+
+/* 見出しジャンプ時にヘッダーで隠れないように */
+section[id] {
+    scroll-margin-top: var(--header-height);
+}
+
+/* H1 は文字数が増えたためサイズを少し抑える */
+h1.section-title {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    line-height: 1.4;
+}
+
+.section-text + .section-text {
+    margin-top: 1rem;
+}
+
+/* 準備中ボタン（span 化） */
+.card-btn[aria-disabled="true"] {
+    background-color: #767676;
+    cursor: not-allowed;
+}
+
+.contents-card.is-disabled .card-title,
+.contents-card.is-disabled .card-description {
+    color: #555;
+}
+
+/* About */
+.feature-list {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: .75rem;
+}
+
+.feature-list li {
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid var(--color-accent);
+    border-radius: 6px;
+}
+
+/* FAQ */
+.faq-list {
+    max-width: 800px;
+    display: grid;
+    gap: 12px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0 20px;
+}
+
+.faq-item summary {
+    cursor: pointer;
+    padding: 16px 0;
+    font-weight: 700;
+    color: var(--color-main);
+}
+
+.faq-item p {
+    margin: 0 0 16px;
+}
+
+/* Footer */
+.footer {
+    padding: 32px 0;
+    background: var(--color-main);
+    color: #fff;
+    text-align: center;
+}
+
+.footer-text {
+    margin: 0;
+    font-size: .85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+
+/* ==========================================================================
+   Grade-up additions — Hero / KOSEN Acronym / Cards / Footer
+   ========================================================================== */
+
+/* ロゴの em（KOSENハイライト） */
+.logo-em {
+    font-style: normal;
+    color: var(--color-accent);
+}
+
+/* -------- Hero -------- */
+.section-hero {
+    background: linear-gradient(160deg, #f0f2ff 0%, #e8f4fd 60%, #fff 100%);
+    padding-top: 72px;
+    padding-bottom: 80px;
+}
+
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 6px 16px;
+    background: color-mix(in srgb, var(--color-accent), #fff 88%);
+    color: var(--color-accent);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    border-radius: 100px;
+    border: 1px solid color-mix(in srgb, var(--color-accent), #fff 70%);
+}
+
+.hero-title {
+    margin: 0 0 .6em;
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    line-height: 1.3;
+    color: var(--color-main);
+}
+
+.hero-title-accent {
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    margin: 0 0 2rem;
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.9;
+}
+
+/* CTA ボタン */
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-accent), transparent 60%);
+}
+
+.btn-primary:hover {
+    background: color-mix(in srgb, var(--color-accent), #000 12%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--color-accent), transparent 50%);
+}
+
+.btn-ghost {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    font-weight: 700;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.btn-ghost:hover {
+    background: color-mix(in srgb, var(--color-accent), #fff 92%);
+    transform: translateY(-2px);
+}
+
+
+/* -------- KOSEN アクロニム -------- */
+.kosen-acronym {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 28px 32px;
+    background: rgba(255, 255, 255, .75);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(79, 85, 216, .15);
+    border-radius: 16px;
+}
+
+.kosen-item {
+    min-width: 0;
+    text-align: center;
+}
+
+.kosen-item dt {
+    margin-bottom: 4px;
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--color-main);
+}
+
+.kosen-item dd {
+    margin: 0;
+    font-size: .72rem;
+    color: #666;
+    line-height: 1.5;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+.kosen-letter {
+    display: inline-block;
+    color: var(--color-accent);
+    font-size: 1.15em;
+}
+
+/* スマホ：3列に折り返す */
+@media (max-width: 720px) {
+    .kosen-acronym {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px 12px;
+        padding: 20px 16px;
+    }
+
+    .kosen-item dt {
+        font-size: .85rem;
+    }
+
+    .kosen-item dd {
+        font-size: .72rem;
+        word-break: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+}
+
+
+/* -------- Contents カードのグレードアップ -------- */
+.card-header {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--color-accent), #fff 88%);
+    color: var(--color-accent);
+    border: 1px solid color-mix(in srgb, var(--color-accent), #fff 72%);
+}
+
+.card-tag--level {
+    background: color-mix(in srgb, var(--color-accent-light), #fff 88%);
+    color: color-mix(in srgb, var(--color-accent-light), #000 30%);
+    border-color: color-mix(in srgb, var(--color-accent-light), #fff 72%);
+}
+
+.card-tag--soon {
+    background: #fff8e1;
+    color: #b45309;
+    border-color: #fde68a;
+}
+
+/* ボタン色をCSS変数に統一 */
+.card-btn {
+    background-color: var(--color-accent);
+}
+
+.card-btn:hover:not([aria-disabled]) {
+    background-color: color-mix(in srgb, var(--color-accent), #000 14%);
+}
+
+/* -------- feature-list 改善 -------- */
+.feature-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.feature-list li strong {
+    color: var(--color-main);
+}
+
+.feature-list li span {
+    font-size: .95rem;
+    color: #555;
+}
+
+/* -------- Footer 改善 -------- */
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 12px 32px;
+    align-items: start;
+    padding-block: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-logo-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.footer-logo-title em {
+    font-style: normal;
+    color: color-mix(in srgb, var(--color-accent-light), #fff 60%);
+}
+
+.footer-logo-sub {
+    font-size: .78rem;
+    opacity: .7;
+}
+
+.footer-nav {
+    grid-row: 1 / 3;
+    align-self: center;
+}
+
+.footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+}
+
+.footer-nav a {
+    font-size: .85rem;
+    opacity: .8;
+    transition: var(--transition);
+}
+
+.footer-nav a:hover {
+    opacity: 1;
+}
+
+.footer-copy {
+    margin: 0;
+    font-size: .78rem;
+    opacity: .6;
+    align-self: end;
+}
+
+@media (max-width: 720px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        text-align: center;
+        padding-block: 32px;
+    }
+
+    .footer-nav {
+        grid-row: auto;
+    }
+
+    .footer-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-copy {
+        text-align: center;
+    }
+}
+
+/* -------- section-hero のスマホ調整 -------- */
+@media (max-width: 720px) {
+    .section-hero {
+        padding-top: 48px;
+        padding-bottom: 60px;
+    }
+
+    .hero-description br {
+        display: none;
+    }
 }

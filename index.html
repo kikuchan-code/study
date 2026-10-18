@@ -1,174 +1,320 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: https://ogp.me/ns#">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Google Search Console-->
+    <meta name="theme-color" content="#46487c" />
+
+    <!-- Google Search Console -->
     <meta name="google-site-verification" content="Fz1t-n9LB00pw1ntAssfW7oIKPUWXunKQfnO1DGMa2A" />
-    <title>教材置き場</title>
-    <link rel="icon" href="icon.ico">
-    <meta name="description" content="高専生のための教材置き場。学習に役立つコンテンツを順次追加していきます。">
+
+    <!-- SEO core -->
+    <title>Base Study Hub KOSEN｜高専生のための基礎学習サイト・有機化学クイズ</title>
+    <meta name="description"
+        content="高専生の基礎学習をサポートする無料の学習ハブ。ブラウザで手軽に挑戦できる【化学2】有機化学クイズを公開中。テスト対策・授業の予習・復習に。会員登録不要、スマホ対応。">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://study.kikuchan-code.workers.dev/" />
+
+    <!-- Icons -->
+    <!-- 標準的なファビコン（16x16 / 32x32など） -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico">
+
+    <!-- Apple Touch Icon (iPhoneなど) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- OGP / Twitter Card -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Base Study Hub KOSEN">
+    <meta property="og:title" content="Base Study Hub KOSEN｜高専生のための基礎学習サイト・有機化学クイズ">
+    <meta property="og:description" content="高専生の基礎学習をサポートする無料の学習ハブ。有機化学クイズなどを公開中。会員登録不要、スマホ対応。">
+    <meta property="og:url" content="https://study.kikuchan-code.workers.dev/">
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- 構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://study.kikuchan-code.workers.dev/#website",
+          "url": "https://study.kikuchan-code.workers.dev/",
+          "name": "Base Study Hub KOSEN",
+          "description": "高専生の基礎学習をサポートする無料の学習ハブ",
+          "inLanguage": "ja"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://study.kikuchan-code.workers.dev/#webpage",
+          "url": "https://study.kikuchan-code.workers.dev/",
+          "name": "Base Study Hub KOSEN｜高専生のための基礎学習サイト・有機化学クイズ",
+          "isPartOf": { "@id": "https://study.kikuchan-code.workers.dev/#website" },
+          "inLanguage": "ja"
+        },
+        {
+          "@type": "ItemList",
+          "name": "学習コンテンツ一覧",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://kikuchan-code.github.io/chemical-study/",
+              "name": "【化学2】有機化学クイズ"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Base Study Hub KOSENは無料で使えますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "はい、すべて無料です。会員登録も不要で、ブラウザからそのまま利用できます。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "スマートフォンでも使えますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "はい、スマートフォン・タブレット・パソコンのブラウザに対応しています。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "今後どんな教材が追加されますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "高専の基礎科目（化学・数学・物理・英語など）を中心に、順次追加していく予定です。追加された教材は学習コンテンツ一覧に掲載します。"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- =========================
-         Header
-    ========================== -->
-    <header class="header">
+    <a class="skip-link" href="#main">本文へスキップ</a>
 
+    <!-- ==============================
+         Header
+    ============================== -->
+    <header class="header">
         <div class="header-inner">
 
-            <a href="#home" class="logo">
-
-                <p class="logo-subtitle">
-                    高専生の基礎学習をサポート
-                </p>
-
-                <h1 class="logo-title">
-                    教材置き場
-                </h1>
-
+            <a href="./" class="logo" aria-label="Base Study Hub KOSEN トップページへ">
+                <span class="logo-subtitle">高専生の基礎学習をサポート</span>
+                <span class="logo-title">Base Study Hub <em class="logo-em">KOSEN</em></span>
             </a>
 
-            <!-- Hamburger -->
-            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+            <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false"
+                aria-controls="nav">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Navigation -->
-            <nav class="nav" id="nav">
-
+            <nav class="nav" id="nav" aria-label="メインメニュー">
                 <ul class="nav-list">
                     <li><a href="#home">ホーム</a></li>
-                    <li><a href="#contents">学習コンテンツ一覧</a></li>
-                    <!--<li><a href="#information">お知らせ</a></li>-->
-                    <!--<li><a href="#developer">ポートフォリオ</a></li>-->
+                    <li><a href="#contents">学習コンテンツ</a></li>
+                    <li><a href="#about">サイトについて</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
-
             </nav>
 
         </div>
-
     </header>
-    <!-- =========================
+
+    <!-- ==============================
          Main
-    ========================== -->
-    <main>
+    ============================== -->
+    <main id="main">
 
-        <!-- Home -->
-        <section class="section section-alt" id="home">
+        <!-- Hero / Home -->
+        <section class="section section-hero" id="home" aria-labelledby="home-title">
             <div class="container">
-                <div class="section-heading">
-                    <p class="section-label"> HOME </p>
-                    <h2 class="section-title"> 教材置き場 </h2>
+                <p class="hero-badge">無料・登録不要・スマホ対応</p>
+                <h1 class="hero-title" id="home-title">
+                    高専の基礎学習、<br>
+                    <span class="hero-title-accent">手軽に・楽しく・確実に。</span>
+                </h1>
+                <p class="hero-description">
+                    　テスト前の追い込みから、授業の予習・復習まで。<br>
+                    ブラウザだけで取り組める教材を公開しています。
+                </p>
+                <div class="hero-actions">
+                    <a href="#contents" class="btn-primary">コンテンツを見る</a>
+                    <a href="#about" class="btn-ghost">サイトについて</a>
                 </div>
-                <div class="section-content">
-                    <p class="section-text"> 高専生の基礎学習をサポートする教材を公開しています。<br> 現在は有機化学クイズを公開中です。 </p>
-                </div>
-            </div>
-        </section> <!-- Contents -->
-        <section class="section" id="contents">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label"> CONTENTS </p>
-                    <h2 class="section-title"> 学習コンテンツ一覧 </h2>
-                </div>
-                <div class="section-content">
-                    <div class="contents-grid">
-                        <div class="contents-card">
-                            <h3 class="card-title">【化学2】有機化学クイズ</h3>
-                            <p class="card-description"> ブラウザで手軽に挑戦！基礎から学べる有機化学のクイズです。 </p> <a
-                                href="https://kikuchan-code.github.io/chemical-study/" class="card-btn"> クイズに挑戦する </a>
-                        </div>
-                        <div class="contents-card is-disabled">
-                            <h3 class="card-title">準備中</h3>
-                            <p class="card-description"> 今後さまざまな教材を追加予定です。 頑張ります！</p> <a href="#" class="card-btn"
-                                onclick="return false;"> 準備中 </a>
-                        </div>
+
+                <!-- KOSEN アクロニム -->
+                <dl class="kosen-acronym" aria-label="KOSENの意味">
+                    <div class="kosen-item">
+                        <dt><span class="kosen-letter">K</span>ey</dt>
+                        <dd>学習の<wbr>キーポイントを<wbr>おさえる</dd>
                     </div>
-                </div>
+                    <div class="kosen-item">
+                        <dt><span class="kosen-letter">O</span>utput</dt>
+                        <dd>クイズ・演習で<wbr>アウトプットする</dd>
+                    </div>
+                    <div class="kosen-item">
+                        <dt><span class="kosen-letter">S</span>tudy</dt>
+                        <dd>繰り返し解いて<wbr>定着させる</dd>
+                    </div>
+                    <div class="kosen-item">
+                        <dt><span class="kosen-letter">E</span>ffect</dt>
+                        <dd>確かな手応えを<wbr>実感できる</dd>
+                    </div>
+                    <div class="kosen-item">
+                        <dt><span class="kosen-letter">N</span>ext</dt>
+                        <dd>自信を持って<wbr>次のステップへ</dd>
+                    </div>
+                </dl>
             </div>
         </section>
 
-        <!--
-        <section class="section" id="information">
-
+        <!-- Contents -->
+        <section class="section" id="contents" aria-labelledby="contents-title">
             <div class="container">
-
                 <div class="section-heading">
+                    <p class="section-label">CONTENTS</p>
+                    <h2 class="section-title" id="contents-title">学習コンテンツ一覧</h2>
+                    <p class="section-text">　各コンテンツは外部ページで動作します。ブラウザの「戻る」でここに戻れます。</p>
+                </div>
+                <div class="contents-grid">
 
-                    <p class="section-label">
-                        INFORMATION
-                    </p>
+                    <article class="contents-card">
+                        <div class="card-header">
+                            <span class="card-tag">化学</span>
+                            <span class="card-tag card-tag--level">基礎〜標準</span>
+                        </div>
+                        <h3 class="card-title">【化学2】有機化学クイズ</h3>
+                        <p class="card-description">
+                            官能基・命名法・反応など、有機化学の基礎をクイズ形式で確認できます。
+                            テスト直前の総仕上げや、苦手な単元のピンポイント練習に。
+                        </p>
+                        <a href="https://kikuchan-code.github.io/chemical-study/" class="card-btn"
+                            aria-label="【化学2】有機化学クイズに挑戦する（外部サイト）" rel="noopener">
+                            クイズに挑戦する →
+                        </a>
+                    </article>
 
-                    <h2 class="section-title">
-                        お知らせ
-                    </h2>
+                    <article class="contents-card is-disabled" aria-label="準備中のコンテンツ">
+                        <div class="card-header">
+                            <span class="card-tag card-tag--soon">近日公開</span>
+                        </div>
+                        <h3 class="card-title">次のコンテンツを準備中</h3>
+                        <p class="card-description">
+                            数学・物理・英語など、高専の基礎科目を中心に追加予定です。
+                            しばらくお待ちください。
+                        </p>
+                        <span class="card-btn" aria-disabled="true">準備中</span>
+                    </article>
 
                 </div>
-
-                <div class="section-content">
-
-                    <p class="section-text">
-                        しばらくお待ちください。
-                    </p>
-
-                </div>
-
             </div>
-
         </section>
 
--->
-
-        <!-- 
-        <section class="section" id="developer">
-
+        <!-- About -->
+        <section class="section section-alt" id="about" aria-labelledby="about-title">
             <div class="container">
-
                 <div class="section-heading">
-
-                    <p class="section-label">
-                        PORTFOLIO
-                    </p>
-
-                    <h2 class="section-title">
-                        ポートフォリオ
-                    </h2>
-
+                    <p class="section-label">ABOUT</p>
+                    <h2 class="section-title" id="about-title">このサイトについて</h2>
                 </div>
-
-                <div class="section-content">
-
-                    <p class="section-text">
-                        　このサイトの運営者のポートフォリオです。<br>
-                        ポートフォリオは<a href="portfolio.html">こちら</a>です。
-                    </p>
-
-                </div>
-
+                <p class="section-text">
+                    　Base Study Hub とは、高専生が基礎科目でつまずきやすいポイントを、手軽に確認・復習できるようにするための学習ハブです。<br>
+                    各コンテンツはそれぞれのページで動作し、このサイトはその入口（ハブ）として機能します。
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <strong>無料・登録不要</strong>
+                        <span>ブラウザを開くだけですぐ使えます。アカウント作成は不要です。</span>
+                    </li>
+                    <li>
+                        <strong>スマホ・PC どちらでも</strong>
+                        <span>通学中のすきま時間にも、じっくり机に向かうときにも。</span>
+                    </li>
+                    <li>
+                        <strong>ハブ型の構成</strong>
+                        <span>科目ごとに独立したページへ飛ぶ形式で、コンテンツを順次追加していきます。</span>
+                    </li>
+                    <li>
+                        <strong>高専生が作成したコンテンツ</strong>
+                        <span>AIにサポートしてもらいながら、高専生の知識と経験を活かして作成されています。</span>
+                    </li>
+                </ul>
             </div>
-
         </section>
- -->
+
+        <!-- FAQ -->
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">FAQ</p>
+                    <h2 class="section-title" id="faq-title">よくある質問</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>無料で使えますか？</summary>
+                        <p>はい、すべて無料です。会員登録も不要で、ブラウザからそのまま利用できます。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>スマートフォンでも使えますか？</summary>
+                        <p>はい、スマートフォン・タブレット・パソコンのブラウザに対応しています。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>今後どんな教材が追加されますか？</summary>
+                        <p>高専の基礎科目（化学・数学・物理・英語など）を中心に、順次追加していく予定です。追加された教材は「学習コンテンツ一覧」に掲載します。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>コンテンツのリクエストはできますか？</summary>
+                        <p>現時点では窓口を設けていませんが、今後対応できるよう検討中です。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <!-- =========================
-         To Top Button
-    ========================== -->
-    <button id="toTopBtn" class="to-top-btn" title="上へ戻る">
+    <!-- ==============================
+         Footer
+    ============================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-logo">
+                <span class="footer-logo-title">Base Study Hub <em>KOSEN</em></span>
+                <span class="footer-logo-sub">高専生の基礎学習をサポート</span>
+            </div>
+            <nav class="footer-nav" aria-label="フッターメニュー">
+                <ul>
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#contents">学習コンテンツ</a></li>
+                    <li><a href="#about">サイトについて</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <p class="footer-copy">&copy; 2026 Base Study Hub KOSEN</p>
+        </div>
+    </footer>
+
+    <!-- To Top -->
+    <button id="toTopBtn" class="to-top-btn" type="button" title="上へ戻る" aria-label="ページの先頭へ戻る">
         <span aria-hidden="true" class="to-top-icon"></span>
     </button>
 
-    <!-- =========================
-         Scripts
-    ========================== -->
     <script src="script.js" defer></script>
 
 </body>
