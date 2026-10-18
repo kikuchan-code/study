@@ -330,7 +330,7 @@ ul {
     place-items: center;
     border: none;
     border-radius: 50%;
-    background: var(--color-main);
+    background: var(--color-accent);
     color: white;
     cursor: pointer;
     opacity: 0;
@@ -503,6 +503,23 @@ ul {
     transition: background-color 0.2s ease;
 }
 
+/* 説明欄のリスト */
+.card-description ul {
+    margin: 6px 0 0;
+    padding-left: 1.4em;
+    list-style: disc;
+}
+
+.card-description li {
+    margin-bottom: 2px;
+}
+
+/* 説明欄の項目見出し */
+.card-description strong {
+    color: var(--color-main);
+    font-weight: 700;
+}
+
 .card-btn:hover {
     background-color: #0056a3;
 }
@@ -615,7 +632,7 @@ h1.section-title {
 /* Footer */
 .footer {
     padding: 32px 0;
-    background: var(--color-main);
+    background: color-mix(in srgb, var(--color-main), #000 0%);
     color: #fff;
     text-align: center;
 }
