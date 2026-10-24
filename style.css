@@ -652,10 +652,10 @@ h1.section-title {
 }
 
 /* ==========================================================================
-   Grade-up additions — Hero / KOSEN Acronym / Cards / Footer
+   Grade-up additions — Hero / Cards / Footer
    ========================================================================== */
 
-/* ロゴの em（KOSENハイライト） */
+/* ロゴの em（S.K.ハイライト） */
 .logo-em {
     font-style: normal;
     color: var(--color-accent);
@@ -741,68 +741,6 @@ h1.section-title {
     background: color-mix(in srgb, var(--color-accent), #fff 92%);
     transform: translateY(-2px);
 }
-
-
-/* -------- KOSEN アクロニム -------- */
-.kosen-acronym {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 12px;
-    margin: 0;
-    padding: 28px 32px;
-    background: rgba(255, 255, 255, .75);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(79, 85, 216, .15);
-    border-radius: 16px;
-}
-
-.kosen-item {
-    min-width: 0;
-    text-align: center;
-}
-
-.kosen-item dt {
-    margin-bottom: 4px;
-    font-size: .85rem;
-    font-weight: 700;
-    color: var(--color-main);
-}
-
-.kosen-item dd {
-    margin: 0;
-    font-size: .72rem;
-    color: #666;
-    line-height: 1.5;
-    word-break: normal;
-    overflow-wrap: normal;
-}
-
-.kosen-letter {
-    display: inline-block;
-    color: var(--color-accent);
-    font-size: 1.15em;
-}
-
-/* スマホ：3列に折り返す */
-@media (max-width: 720px) {
-    .kosen-acronym {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px 12px;
-        padding: 20px 16px;
-    }
-
-    .kosen-item dt {
-        font-size: .85rem;
-    }
-
-    .kosen-item dd {
-        font-size: .72rem;
-        word-break: normal;
-        word-break: normal;
-        overflow-wrap: normal;
-    }
-}
-
 
 /* -------- Contents カードのグレードアップ -------- */
 .card-header {
@@ -954,5 +892,196 @@ h1.section-title {
 
     .hero-description br {
         display: none;
+    }
+}
+
+
+/* ==========================================================================
+   Festival（文化祭バナー＋展示セクション）
+   ========================================================================== */
+
+/* -------- バナー -------- */
+.event-banner {
+    background: linear-gradient(90deg, var(--color-main), var(--color-accent) 60%, var(--color-accent-light));
+    color: #fff;
+}
+
+.event-banner[hidden] {
+    display: none;
+}
+
+.event-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-block: 10px;
+}
+
+.event-banner-badge {
+    flex: 0 0 auto;
+    padding: 2px 12px;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--color-main);
+    background: #fff;
+    border-radius: 100px;
+}
+
+.event-banner-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.event-banner-text span {
+    opacity: .85;
+}
+
+.event-banner-link {
+    flex: 0 0 auto;
+    padding: 5px 16px;
+    font-size: .85rem;
+    font-weight: 700;
+    border: 1.5px solid rgba(255, 255, 255, .8);
+    border-radius: 100px;
+    transition: var(--transition);
+}
+
+.event-banner-link:hover {
+    background: #fff;
+    color: var(--color-main);
+}
+
+.event-banner-close {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #fff;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: .8;
+    transition: var(--transition);
+}
+
+.event-banner-close:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, .18);
+}
+
+.event-banner a:focus-visible,
+.event-banner button:focus-visible {
+    outline-color: #fff;
+}
+
+/* -------- 展示セクション -------- */
+.section-festival {
+    padding-top: 56px;
+    background: linear-gradient(180deg, #fff 0%, #f6f4ff 100%);
+}
+
+.festival-card {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 32px;
+    padding: 32px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(135deg, var(--color-accent), var(--color-accent-light)) border-box;
+}
+
+.festival-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.festival-card .card-description {
+    flex-grow: 0;
+}
+
+.festival-action {
+    flex: 0 0 220px;
+    display: flex;
+    align-items: center;
+}
+
+.festival-action .card-btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-accent), transparent 60%);
+}
+
+.card-tag--festival {
+    background: #fff0f4;
+    color: var(--color-link);
+    border-color: #ffd0dc;
+}
+
+.festival-info {
+    margin: 0;
+    display: grid;
+    gap: 6px;
+    font-size: .92rem;
+}
+
+.festival-info div {
+    display: flex;
+    gap: 12px;
+}
+
+.festival-info dt {
+    flex: 0 0 3.5em;
+    font-weight: 700;
+    color: var(--color-main);
+}
+
+.festival-info dd {
+    margin: 0;
+    color: #555;
+}
+
+@media (max-width: 720px) {
+    .section-festival {
+        padding-top: 40px;
+    }
+
+    .event-banner-inner {
+        flex-wrap: wrap;
+        gap: 8px 10px;
+        padding-block: 10px;
+    }
+
+    .event-banner-text {
+        flex-basis: calc(100% - 100px);
+        font-size: .85rem;
+    }
+
+    .event-banner-text span {
+        display: none;
+    }
+
+    .festival-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 22px;
+    }
+
+    .festival-action {
+        flex-basis: auto;
     }
 }

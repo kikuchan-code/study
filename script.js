@@ -106,3 +106,30 @@ if (toTopBtn) {
 
   });
 }
+
+
+// ==========================================
+// 文化祭バナー（×で閉じる・同一セッション中は再表示しない）
+// ==========================================
+
+(function () {
+  const banner = document.getElementById('eventBanner');
+  const closeBtn = document.getElementById('eventBannerClose');
+  const KEY = 'eventBannerClosed';
+
+  if (!banner) return;
+
+  let closed = false;
+  try {
+    closed = sessionStorage.getItem(KEY) === '1';
+  } catch (e) { /* ストレージ不可でも表示は続行 */ }
+
+  banner.hidden = closed;
+
+  closeBtn?.addEventListener('click', () => {
+    banner.hidden = true;
+    try {
+      sessionStorage.setItem(KEY, '1');
+    } catch (e) { /* 無視 */ }
+  });
+})();

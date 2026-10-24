@@ -36,75 +36,81 @@
 
     <!-- 構造化データ（JSON-LD） -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "WebSite",
+      "@id": "https://study.kikuchan-code.workers.dev/#website",
+      "url": "https://study.kikuchan-code.workers.dev/",
+      "name": "S.K. Base Study Hub",
+      "description": "高専生の基礎学習をサポートする無料の学習ハブ",
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://study.kikuchan-code.workers.dev/#webpage",
+      "url": "https://study.kikuchan-code.workers.dev/",
+      "name": "S.K. Base Study Hub｜高専生のための基礎学習サイト",
+      "isPartOf": { "@id": "https://study.kikuchan-code.workers.dev/#website" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "ItemList",
+      "name": "学習コンテンツ一覧",
+      "itemListElement": [
         {
-          "@type": "WebSite",
-          "@id": "https://study.kikuchan-code.workers.dev/#website",
-          "url": "https://study.kikuchan-code.workers.dev/",
-          "name": "S.K. Base Study Hub",
-          "description": "高専生の基礎学習をサポートする無料の学習ハブ",
-          "inLanguage": "ja"
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://kikuchan-code.github.io/KOSEN_FESTIVAL_2026/",
+          "name": "文化祭展示：ボイジャー2号 スイングバイ計算"
         },
         {
-          "@type": "WebPage",
-          "@id": "https://study.kikuchan-code.workers.dev/#webpage",
-          "url": "https://study.kikuchan-code.workers.dev/",
-          "name": "S.K. Base Study Hub｜高専生のための基礎学習サイト",
-          "isPartOf": { "@id": "https://study.kikuchan-code.workers.dev/#website" },
-          "inLanguage": "ja"
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://kikuchan-code.github.io/OrganicChemistry/",
+          "name": "【化学2】有機化学クイズ"
         },
         {
-          "@type": "ItemList",
-          "name": "学習コンテンツ一覧",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "url": "https://kikuchan-code.github.io/OrganicChemistry/",
-              "name": "【化学2】有機化学クイズ"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "url": "https://kikuchan-code.github.io/Electrochemistry/",
-              "name": "【化学1】電気化学シート"
-            }
-          ]
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://kikuchan-code.github.io/Electrochemistry/",
+          "name": "【化学1】電気化学シート"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "S.K. Base Study Hubは無料で使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、すべて無料です。会員登録も不要で、ブラウザからそのまま利用できます。"
+          }
         },
         {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "S.K. Base Study Hubは無料で使えますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "はい、すべて無料です。会員登録も不要で、ブラウザからそのまま利用できます。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "スマートフォンでも使えますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "はい、スマートフォン・タブレット・パソコンのブラウザに対応しています。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "今後どんな教材が追加されますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "高専の基礎科目（化学・数学・物理・英語など）を中心に、順次追加していく予定です。追加された教材は学習コンテンツ一覧に掲載します。"
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "スマートフォンでも使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、スマートフォン・タブレット・パソコンのブラウザに対応しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "今後どんな教材が追加されますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "高専の基礎科目（化学・数学・物理・英語など）を中心に、順次追加していく予定です。追加された教材は学習コンテンツ一覧に掲載します。"
+          }
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
 
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -134,6 +140,7 @@
             <nav class="nav" id="nav" aria-label="メインメニュー">
                 <ul class="nav-list">
                     <li><a href="#home">ホーム</a></li>
+                    <li><a href="#festival">文化祭展示</a></li>
                     <li><a href="#contents">学習コンテンツ</a></li>
                     <li><a href="#about">サイトについて</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -147,6 +154,19 @@
          Main
     ============================== -->
     <main id="main">
+
+        <!-- 高専祭バナー（×で閉じられる／同一セッション中は再表示しない） -->
+        <aside class="event-banner" id="eventBanner" aria-label="高専祭展示のお知らせ" hidden>
+            <div class="container event-banner-inner">
+                <span class="event-banner-badge">高専祭</span>
+                <p class="event-banner-text">
+                    <strong>高専祭特別展示を公開中！</strong>
+                    <span>ブラウザですぐ体験できる展示コンテンツです。</span>
+                </p>
+                <a href="#festival" class="event-banner-link">展示を見る →</a>
+                <button type="button" class="event-banner-close" id="eventBannerClose" aria-label="お知らせを閉じる">×</button>
+            </div>
+        </aside>
 
         <!-- Hero / Home -->
         <section class="section section-hero" id="home" aria-labelledby="home-title">
@@ -164,6 +184,41 @@
                     <a href="#contents" class="btn-primary">コンテンツを見る</a>
                     <a href="#about" class="btn-ghost">サイトについて</a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Festival（文化祭展示） -->
+        <section class="section section-festival" id="festival" aria-labelledby="festival-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">FESTIVAL</p>
+                    <h2 class="section-title" id="festival-title">高専祭 特別展示</h2>
+                    <p class="section-text">高専祭で展示しているコンテンツを、このサイトからも体験できます。展示は外部ページで動作します。</p>
+                </div>
+
+                <article class="contents-card festival-card">
+                    <div class="festival-body">
+                        <div class="card-header">
+                            <span class="card-tag card-tag--festival">高専祭展示</span>
+                            <span class="card-tag card-tag--level">数学</span>
+                            <span class="card-tag card-tag--level">物理</span>
+                        </div>
+                        <h3 class="card-title">【チームK】探査機の軌道を計算する<br>～ボイジャー2号の惑星スイングバイ～</h3>
+                        <p class="card-description">
+                            スイングバイとは、惑星の重力を利用して宇宙船の速度や進行方向を変える技術です。この展示では、ボイジャー2号が使用したスイングバイの計算方法を体験できます。                        </p>
+                        <dl class="festival-info">
+                            <div><dt>開催</dt><dd>大阪公大高専 高専祭（2026年11月8日〜9日）</dd></div>
+                            <div><dt>場所</dt><dd>特別教室 ｜ オンライン</dd></div>
+                            <div><dt>対象</dt><dd>どなたでも（登録不要・スマホ対応）</dd></div>
+                        </dl>
+                    </div>
+                    <div class="festival-action">
+                        <a href="https://kikuchan-code.github.io/KOSEN_FESTIVAL_2026/" class="card-btn" target="_blank"
+                            rel="noopener noreferrer" aria-label="文化祭の展示を見る（外部サイト・新しいタブで開きます）">
+                            展示を見る →
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -233,7 +288,8 @@
                         </a>
                     </article>
 
-                                        <article class="contents-card">
+                    <!-- ここはまだ未公開（来年公開予定）なのでコメントアウト
+                    <article class="contents-card">
                         <div class="card-header">
                             <span class="card-tag">化学</span>
                             <span class="card-tag">物理</span>
@@ -263,6 +319,7 @@
                             半導体プロセスを勉強する →
                         </a>
                     </article>
+                    -->
 
                     <article class="contents-card is-disabled" aria-label="準備中のコンテンツ">
                         <div class="card-header">
@@ -306,7 +363,7 @@
                     </li>
                     <li>
                         <strong>高専生が作成したコンテンツ</strong>
-                        <span>サイト自体は100％AIですが、コンテンツはAIを極力利用せず、高専生の知識と経験を活かして作成しております。あくまでも、プログラミング能力の証明ではなく、とくに半導体分野の知識を深めるための支援を目的としています。</span>
+                        <span>サイト自体は100％AIですが、コンテンツはAIを極力利用せず、人間による知識と経験を活かして作成しております。</span>
                     </li>
                 </ul>
             </div>
@@ -336,6 +393,11 @@
                         <summary>コンテンツのリクエストはできますか？</summary>
                         <p>現時点では窓口を設けていませんが、今後対応できるよう検討中です。</p>
                     </details>
+                    <details class="faq-item">
+                        <summary>今話題のPHPは利用していますか？</summary>
+                        <p>HTML、CSS、JavaScriptを利用していますが、PHPは利用していません。安心してご利用ください。
+                        </p>
+                    </details>
                 </div>
             </div>
         </section>
@@ -348,12 +410,13 @@
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-logo">
-                <span class="footer-logo-title">Base Study Hub <em>KOSEN</em></span>
+                <span class="footer-logo-title"><em class="footer-logo-em">S.K.</em> Base Study Hub</span>
                 <span class="footer-logo-sub">高専生の基礎学習をサポート</span>
             </div>
             <nav class="footer-nav" aria-label="フッターメニュー">
                 <ul>
                     <li><a href="#home">ホーム</a></li>
+                    <li><a href="#festival">文化祭展示</a></li>
                     <li><a href="#contents">学習コンテンツ</a></li>
                     <li><a href="#about">サイトについて</a></li>
                     <li><a href="#faq">FAQ</a></li>
