@@ -897,191 +897,208 @@ h1.section-title {
 
 
 /* ==========================================================================
-   Festival（文化祭バナー＋展示セクション）
+   高専祭バナー・展示カード
    ========================================================================== */
 
-/* -------- バナー -------- */
 .event-banner {
-    background: linear-gradient(90deg, var(--color-main), var(--color-accent) 60%, var(--color-accent-light));
     color: #fff;
+    background: linear-gradient(100deg, var(--color-main), var(--color-accent));
 }
-
-.event-banner[hidden] {
-    display: none;
-}
+.event-banner[hidden] { display: none; }
 
 .event-banner-inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
     align-items: center;
-    gap: 14px;
-    padding-block: 10px;
+    gap: 12px 18px;
+    padding-block: 12px;
 }
-
 .event-banner-badge {
-    flex: 0 0 auto;
-    padding: 2px 12px;
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    color: var(--color-main);
-    background: #fff;
+    justify-self: start;
+    padding: 4px 12px;
     border-radius: 100px;
+    background: #fff;
+    color: var(--color-main);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    white-space: nowrap;
 }
-
 .event-banner-text {
-    flex: 1 1 auto;
     min-width: 0;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 12px;
     font-size: .9rem;
-    line-height: 1.5;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
 }
-
+.event-banner-text strong { display: block; font-weight: 700; }
 .event-banner-text span {
-    opacity: .85;
+    display: block;
+    margin-top: 2px;
+    font-size: .82rem;
+    opacity: .9;
 }
-
 .event-banner-link {
-    flex: 0 0 auto;
-    padding: 5px 16px;
+    justify-self: end;
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 8px;
     font-size: .85rem;
     font-weight: 700;
-    border: 1.5px solid rgba(255, 255, 255, .8);
-    border-radius: 100px;
-    transition: var(--transition);
+    line-height: 1.35;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color .2s ease, color .2s ease;
 }
-
-.event-banner-link:hover {
-    background: #fff;
-    color: var(--color-main);
-}
-
+.event-banner-link:hover { background: #fff; color: var(--color-main); }
 .event-banner-close {
-    flex: 0 0 auto;
+    align-self: start;
+    justify-self: end;
+    display: grid;
+    place-items: center;
     width: 32px;
     height: 32px;
     padding: 0;
-    font-size: 1.3rem;
-    line-height: 1;
-    color: #fff;
-    background: none;
-    border: none;
+    border: 0;
     border-radius: 50%;
+    color: #fff;
+    background: transparent;
+    font-size: 1.35rem;
+    line-height: 1;
     cursor: pointer;
-    opacity: .8;
-    transition: var(--transition);
+    opacity: .85;
+    transition: background-color .2s ease, opacity .2s ease;
 }
-
-.event-banner-close:hover {
-    opacity: 1;
-    background: rgba(255, 255, 255, .18);
-}
-
+.event-banner-close:hover { background: rgba(255, 255, 255, .16); opacity: 1; }
 .event-banner a:focus-visible,
-.event-banner button:focus-visible {
-    outline-color: #fff;
-}
+.event-banner button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
-/* -------- 展示セクション -------- */
+/* 展示カード：本文を先に読み、ボタンはカード下部に配置 */
 .section-festival {
-    padding-top: 56px;
-    background: linear-gradient(180deg, #fff 0%, #f6f4ff 100%);
+    padding-top: 52px;
+    background: linear-gradient(180deg, #fff 0%, #f7f6ff 100%);
 }
-
 .festival-card {
-    flex-direction: row;
-    align-items: stretch;
-    gap: 32px;
-    padding: 32px;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    background:
-        linear-gradient(#fff, #fff) padding-box,
-        linear-gradient(135deg, var(--color-accent), var(--color-accent-light)) border-box;
-}
-
-.festival-body {
-    flex: 1 1 auto;
-    min-width: 0;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: clamp(20px, 3.5vw, 32px);
+    border: 1px solid rgba(97, 103, 238, .35);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(45, 47, 100, .07);
 }
-
-.festival-card .card-description {
-    flex-grow: 0;
-}
-
-.festival-action {
-    flex: 0 0 220px;
+.festival-body {
     display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.festival-card .card-header { gap: 8px; }
+.festival-card .card-title {
+    max-width: 24em;
+    line-height: 1.5;
+    text-wrap: pretty;
+}
+.festival-card .card-description {
+    max-width: 72ch;
+    margin-bottom: 22px;
+    line-height: 1.85;
+}
+.festival-info {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+}
+.festival-info > div {
+    min-width: 0;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f7f7fc;
+}
+.festival-info dt {
+    margin-bottom: 4px;
+    color: var(--color-main);
+    font-size: .8rem;
+    font-weight: 700;
+}
+.festival-info dd {
+    margin: 0;
+    color: #444;
+    font-size: .9rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+.festival-action {
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
-
 .festival-action .card-btn {
-    width: 100%;
-    padding: 16px 24px;
-    font-size: 1.05rem;
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-accent), transparent 60%);
+    width: auto;
+    min-width: 230px;
+    padding: 13px 22px;
+    border-radius: 9px;
+    font-size: .98rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(97, 103, 238, .18);
 }
-
 .card-tag--festival {
-    background: #fff0f4;
     color: var(--color-link);
+    background: #fff0f4;
     border-color: #ffd0dc;
 }
 
-.festival-info {
-    margin: 0;
-    display: grid;
-    gap: 6px;
-    font-size: .92rem;
-}
-
-.festival-info div {
-    display: flex;
-    gap: 12px;
-}
-
-.festival-info dt {
-    flex: 0 0 3.5em;
-    font-weight: 700;
-    color: var(--color-main);
-}
-
-.festival-info dd {
-    margin: 0;
-    color: #555;
+@media (max-width: 900px) {
+    .festival-info { grid-template-columns: 1fr; gap: 8px; }
+    .festival-info > div {
+        display: grid;
+        grid-template-columns: 4em minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        padding: 10px 12px;
+    }
+    .festival-info dt { margin: 0; }
 }
 
 @media (max-width: 720px) {
-    .section-festival {
-        padding-top: 40px;
-    }
-
     .event-banner-inner {
-        flex-wrap: wrap;
-        gap: 8px 10px;
-        padding-block: 10px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 12px;
+        padding-block: 12px;
     }
-
+    .event-banner-badge { grid-column: 1; grid-row: 1; }
+    .event-banner-close { grid-column: 2; grid-row: 1; }
     .event-banner-text {
-        flex-basis: calc(100% - 100px);
-        font-size: .85rem;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        font-size: .92rem;
     }
+    .event-banner-text span { margin-top: 4px; font-size: .82rem; }
 
-    .event-banner-text span {
-        display: none;
+    /* 幅が狭いときは補足説明を隠して、バナーをコンパクトに */
+    @media (max-width: 480px) {
+        .event-banner-text span {
+            display: none;
+        }
     }
-
-    .festival-card {
-        flex-direction: column;
-        gap: 20px;
-        padding: 22px;
+    .event-banner-link {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        justify-self: stretch;
+        white-space: normal;
     }
-
-    .festival-action {
-        flex-basis: auto;
-    }
+    .section-festival { padding-top: 36px; }
+    .festival-card { gap: 18px; }
+    .festival-card .card-title br { display: none; }
+    .festival-action .card-btn { width: 100%; min-width: 0; }
+}
+@media (max-width: 380px) {
+    .event-banner-inner { gap: 8px; }
+    .event-banner-text { font-size: .88rem; }
+    .festival-info > div { grid-template-columns: 3.5em minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .event-banner-link, .event-banner-close { transition: none; }
 }
