@@ -688,6 +688,16 @@ h1.section-title {
     color: var(--color-main);
 }
 
+.hero-title-site {
+    display: block;
+    margin-bottom: .45em;
+    font-size: .36em;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1.4;
+    color: var(--color-accent);
+}
+
 .hero-title-accent {
     background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
     -webkit-background-clip: text;
@@ -952,7 +962,7 @@ h1.section-title {
 }
 .event-banner-link:hover { background: #fff; color: var(--color-main); }
 .event-banner-close {
-    align-self: start;
+    align-self: center;
     justify-self: end;
     display: grid;
     place-items: center;
