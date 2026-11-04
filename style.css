@@ -298,7 +298,6 @@ h1.section-title {
 
 .section-text {
     margin-top: 12px;
-    max-width: 44em;
     color: var(--color-text-sub);
     font-size: .98rem;
 }
@@ -611,7 +610,6 @@ h1.section-title {
 }
 
 .festival-card .card-description {
-    max-width: 44em;
     font-size: .95rem;
 }
 
