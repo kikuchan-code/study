@@ -1075,3 +1075,49 @@ summary:focus-visible {
         transition: none !important;
     }
 }
+
+
+/* =========================
+   高専祭カード：展示名・特設サイトの案内
+========================= */
+.festival-info-wide {
+    grid-column: span 2;
+}
+
+.festival-info-link {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.festival-info-link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+@media (hover: hover) {
+    .festival-info-link:hover {
+        color: var(--color-link);
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 900px) {
+    .festival-info-wide {
+        grid-column: auto;
+    }
+}
