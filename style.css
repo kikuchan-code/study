@@ -445,11 +445,6 @@ h1.section-title {
     background: #fff4d6;
 }
 
-.card-tag--festival {
-    color: var(--color-link);
-    background: #fff0f4;
-}
-
 .card-title {
     margin-bottom: 12px;
     color: var(--color-text);
@@ -508,144 +503,6 @@ h1.section-title {
     color: #fff;
     background: #8a8fa0;
     cursor: not-allowed;
-}
-
-/* =========================
-   Festival
-========================= */
-
-.section-festival {
-    padding-block: 64px;
-}
-
-.event-banner {
-    color: #fff;
-    background: var(--color-main);
-}
-
-.event-banner[hidden] {
-    display: none;
-}
-
-.event-banner-inner {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
-    align-items: center;
-    gap: 8px 16px;
-    padding-block: 10px;
-}
-
-.event-banner-badge {
-    padding: 2px 12px;
-    color: var(--color-main);
-    background: #fff;
-    border-radius: 100px;
-    font-size: .74rem;
-    font-weight: 700;
-    letter-spacing: .06em;
-    white-space: nowrap;
-}
-
-.event-banner-text {
-    min-width: 0;
-    font-size: .9rem;
-    line-height: 1.5;
-}
-
-.event-banner-text strong {
-    display: block;
-    font-weight: 700;
-}
-
-.event-banner-text span {
-    display: block;
-    font-size: .8rem;
-    opacity: .85;
-}
-
-.event-banner-link {
-    padding: 7px 16px;
-    border: 1px solid rgba(255, 255, 255, .6);
-    border-radius: var(--radius-sm);
-    font-size: .85rem;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    transition: background-color var(--transition), color var(--transition);
-}
-
-.event-banner-close {
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    color: #fff;
-    background: transparent;
-    border: 0;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    line-height: 1;
-    cursor: pointer;
-    opacity: .85;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.festival-card {
-    gap: 20px;
-    padding: clamp(20px, 4vw, 32px);
-    border-color: color-mix(in srgb, var(--color-accent), #fff 65%);
-}
-
-.festival-body {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.festival-card .card-title {
-    max-width: 28em;
-    font-size: clamp(1.15rem, 3.4vw, 1.5rem);
-    text-wrap: pretty;
-}
-
-.festival-card .card-description {
-    font-size: .95rem;
-}
-
-.festival-info {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-}
-
-.festival-info > div {
-    min-width: 0;
-    padding: 12px 14px;
-    background: var(--color-bg-soft);
-    border-radius: var(--radius-sm);
-}
-
-.festival-info dt {
-    margin-bottom: 2px;
-    color: var(--color-main);
-    font-size: .78rem;
-    font-weight: 700;
-}
-
-.festival-info dd {
-    color: var(--color-text);
-    font-size: .88rem;
-    line-height: 1.6;
-}
-
-.festival-action {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.festival-action .card-btn {
-    min-width: 240px;
 }
 
 /* =========================
@@ -852,10 +709,7 @@ summary:focus-visible {
     outline: 3px solid var(--color-accent-light);
     outline-offset: 3px;
 }
-
-.event-banner a:focus-visible,
-.event-banner button:focus-visible,
-.footer a:focus-visible {
+    .footer a:focus-visible {
     outline-color: #fff;
 }
 
@@ -889,16 +743,6 @@ summary:focus-visible {
         background: color-mix(in srgb, var(--color-accent), #000 14%);
     }
 
-    .event-banner-link:hover {
-        color: var(--color-main);
-        background: #fff;
-    }
-
-    .event-banner-close:hover {
-        background: rgba(255, 255, 255, .16);
-        opacity: 1;
-    }
-
     .footer-nav a:hover {
         opacity: 1;
     }
@@ -911,25 +755,6 @@ summary:focus-visible {
 /* =========================
    Tablet
 ========================= */
-
-@media (max-width: 900px) {
-    .festival-info {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .festival-info > div {
-        display: grid;
-        grid-template-columns: 3.5em minmax(0, 1fr);
-        gap: 10px;
-        align-items: baseline;
-        padding: 10px 14px;
-    }
-
-    .festival-info dt {
-        margin: 0;
-    }
-}
 
 /* =========================
    Mobile
@@ -973,51 +798,8 @@ summary:focus-visible {
         width: 100%;
     }
 
-    .section-festival {
-        padding-block: 44px;
-    }
-
     .contents-card {
         padding: 20px;
-    }
-
-    .festival-card .card-title br {
-        display: none;
-    }
-
-    .festival-action .card-btn {
-        width: 100%;
-        min-width: 0;
-    }
-
-    /* お知らせバナー：バッジ＋×を1行目、本文、ボタンの順に縦積み */
-    .event-banner-inner {
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 6px 12px;
-        padding-block: 10px;
-    }
-
-    .event-banner-badge {
-        grid-column: 1;
-        grid-row: 1;
-        justify-self: start;
-    }
-
-    .event-banner-close {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    .event-banner-text {
-        grid-column: 1 / -1;
-        grid-row: 2;
-    }
-
-    .event-banner-link {
-        grid-column: 1 / -1;
-        grid-row: 3;
-        padding-block: 10px;
-        white-space: normal;
     }
 
     .footer-inner {
@@ -1032,9 +814,6 @@ summary:focus-visible {
 }
 
 @media (max-width: 480px) {
-    .event-banner-text span {
-        display: none;
-    }
 
     .logo-subtitle {
         font-size: .64rem;
@@ -1055,11 +834,6 @@ summary:focus-visible {
     .logo-title {
         font-size: 1rem;
     }
-
-    .festival-info > div {
-        grid-template-columns: 3em minmax(0, 1fr);
-        padding-inline: 12px;
-    }
 }
 
 /* =========================
@@ -1073,51 +847,5 @@ summary:focus-visible {
 
     * {
         transition: none !important;
-    }
-}
-
-
-/* =========================
-   高専祭カード：展示名・特設サイトの案内
-========================= */
-.festival-info-wide {
-    grid-column: span 2;
-}
-
-.festival-info-link {
-    color: var(--color-accent);
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-}
-
-.festival-info-link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-    border-radius: 3px;
-}
-
-@media (hover: hover) {
-    .festival-info-link:hover {
-        color: var(--color-link);
-    }
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-@media (max-width: 900px) {
-    .festival-info-wide {
-        grid-column: auto;
     }
 }

@@ -12,7 +12,7 @@
     <!-- SEO core -->
     <title>S.K. Base Study Hub｜高専生向け無料学習サイト</title>
     <meta name="description"
-        content="高専生向けの無料学習サイト「S.K. Base Study Hub」。有機化学クイズや電気化学まとめシート、数学・物理の学習コンテンツを公開しています。授業の予習・復習やテスト対策に、スマホ・PCから無料で利用できます。">
+        content="高専生向けの無料学習サイト「S.K. Base Study Hub」。有機化学クイズや電気化学まとめシート、数学・物理・プログラミングの学習コンテンツを公開しています。授業の予習・復習から探究的な学習まで、スマホ・PCから無料で利用できます。">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://study.kikuchan-code.workers.dev/" />
 
@@ -28,7 +28,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="S.K. Base Study Hub">
     <meta property="og:title" content="S.K. Base Study Hub">
-    <meta property="og:description" content="高専生向けの無料学習サイト。有機化学クイズ、電気化学まとめシートを公開。登録不要でスマホ・PCから利用できます。">
+    <meta property="og:description" content="高専生向けの無料学習サイト。有機化学クイズ、電気化学まとめシート、数学・物理・プログラミングの学習コンテンツを公開。登録不要でスマホ・PCから利用できます。">
     <meta property="og:url" content="https://study.kikuchan-code.workers.dev/">
     <meta property="og:image" content="https://study.kikuchan-code.workers.dev/ogp.png">
     <meta property="og:locale" content="ja_JP">
@@ -45,7 +45,7 @@
   "url": "https://study.kikuchan-code.workers.dev/",
   "name": "S.K. Base Study Hub",
   "alternateName": ["S.K. Base", "SK Base Study Hub"],
-  "description": "高専生向けの無料学習サイト。有機化学・電気化学などの教材を公開。",
+  "description": "高専生向けの無料学習サイト。有機化学・電気化学などの教材や、数学・物理・プログラミングの探究コンテンツを公開。",
   "inLanguage": "ja"
 },
 {
@@ -53,7 +53,7 @@
   "@id": "https://study.kikuchan-code.workers.dev/#webpage",
   "url": "https://study.kikuchan-code.workers.dev/",
   "name": "S.K. Base Study Hub｜高専生向け無料学習サイト",
-  "description": "高専生向けに、有機化学クイズや電気化学まとめシートなど、授業の予習・復習やテスト対策に役立つ教材を提供しています。",
+  "description": "高専生向けに、有機化学クイズや電気化学まとめシート、数学・物理・プログラミングの探究コンテンツなど、学習に役立つ教材を提供しています。",
   "isPartOf": {
     "@id": "https://study.kikuchan-code.workers.dev/#website"
   },
@@ -144,7 +144,6 @@
             <nav class="nav" id="nav" aria-label="メインメニュー">
                 <ul class="nav-list">
                     <li><a href="#home">ホーム</a></li>
-                    <li><a href="#festival">高専祭展示</a></li>
                     <li><a href="#contents">学習コンテンツ</a></li>
                     <li><a href="#about">サイトについて</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -158,19 +157,6 @@
          Main
     ============================== -->
     <main id="main">
-
-        <!-- 高専祭バナー（×で閉じられる／同一セッション中は再表示しない） -->
-        <aside class="event-banner" id="eventBanner" aria-label="高専祭展示のお知らせ" hidden>
-            <div class="container event-banner-inner">
-                <span class="event-banner-badge">高専祭</span>
-                <p class="event-banner-text">
-                    <strong>Pythonで体験！ボイジャー2号の軌道計算</strong>
-                    <span>惑星スイングバイをスマホ・PCなどで体験。</span>
-                </p>
-                <a href="#festival" class="event-banner-link">展示を見る →</a>
-                <button type="button" class="event-banner-close" id="eventBannerClose" aria-label="お知らせを閉じる">×</button>
-            </div>
-        </aside>
 
         <!-- Hero / Home -->
         <section class="section section-hero" id="home" aria-labelledby="home-title">
@@ -192,65 +178,6 @@
             </div>
         </section>
 
-        <!-- Festival（高専祭展示） -->
-        <section class="section section-festival" id="festival" aria-labelledby="festival-title">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">FESTIVAL</p>
-                    <h2 class="section-title" id="festival-title">高専祭 特別展示</h2>
-                    <p class="section-text">高専祭で展示しているコンテンツを、このサイトからも体験できます。展示は外部ページで動作します。</p>
-                </div>
-
-                <article class="contents-card festival-card">
-                    <div class="festival-body">
-                        <div class="card-header">
-                            <span class="card-tag card-tag--festival">高専祭展示</span>
-                            <span class="card-tag card-tag--festival">総合課題実習3</span>
-                            <span class="card-tag">数学</span>
-                            <span class="card-tag">物理</span>
-                        </div>
-                        <h3 class="card-title">Pythonで探査機の軌道を計算！<br>ボイジャー2号の惑星スイングバイ</h3>
-                        <p class="card-description">
-                            <strong>Pythonを使って、ボイジャー2号の惑星スイングバイと探査機の速度・軌道を考える体験型展示です。</strong>
-                            惑星の重力を利用して宇宙船の速度や進行方向を変える「スイングバイ」を、数学・物理・プログラミングの視点から学びます。高専祭の展示内容をブラウザから確認できます。
-                        </p>
-                        <dl class="festival-info">
-                            <div>
-                                <dt>展示名</dt>
-                                <dd>イケナイ太陽</dd>
-                            </div>
-                            <div>
-                                <dt>開催</dt>
-                                <dd>大阪公大高専 高専祭（2026年11月7日〜8日）</dd>
-                            </div>
-                            <div>
-                                <dt>場所</dt>
-                                <dd>教養棟3F特別教室 ｜ オンライン</dd>
-                            </div>
-                            <div>
-                                <dt>対象</dt>
-                                <dd>どなたでも（登録不要・スマホ対応）</dd>
-                            </div>
-                            <div class="festival-info-wide">
-                                <dt>詳細</dt>
-                                <dd>
-                                    高専祭についての詳細は<a class="festival-info-link" href="https://www.omu.ac.jp/ct/news/17"
-                                        target="_blank" rel="noopener noreferrer">特設サイト<span aria-hidden="true"> ↗</span><span
-                                            class="visually-hidden">（外部サイト・新しいタブで開きます）</span></a>をご覧ください。
-                                </dd>
-                            </div>
-                        </dl>
-                    </div>
-                    <div class="festival-action">
-                        <a href="https://kikuchan-code.github.io/KOSEN_FESTIVAL_2026/" class="card-btn" target="_blank"
-                            rel="noopener noreferrer" aria-label="高専祭の展示を見る（外部サイト・新しいタブで開きます）">
-                            Python計算の展示を見る →
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
         <!-- Contents -->
         <section class="section" id="contents" aria-labelledby="contents-title">
             <div class="container">
@@ -260,6 +187,35 @@
                     <p class="section-text">各コンテンツは外部ページで動作します。ブラウザの「戻る」でここに戻れます。</p>
                 </div>
                 <div class="contents-grid">
+
+                    <article class="contents-card">
+                        <div class="card-header">
+                            <span class="card-tag">数学</span>
+                            <span class="card-tag">物理</span>
+                            <span class="card-tag">プログラミング</span>
+                            <span class="card-tag card-tag--level">探究・シミュレーション</span>
+                        </div>
+                        <h3 class="card-title">Pythonで学ぶボイジャー2号の惑星スイングバイ・軌道計算</h3>
+                        <div class="card-description">
+                            <strong>学習内容</strong>
+                            <ul>
+                                <li>惑星の重力を利用したスイングバイ</li>
+                                <li>探査機の速度・進行方向の変化</li>
+                                <li>Pythonによる軌道計算とシミュレーション</li>
+                                <li>【おまけ】ラグランジュ点の理論的計算</li>
+                            </ul>
+                            <strong>用途</strong>
+                            <ul>
+                                <li>数学・物理の応用学習</li>
+                                <li>惑星探査や宇宙工学への興味の深化</li>
+                            </ul>
+                        </div>
+                        <a href="https://kikuchan-code.github.io/KOSEN_FESTIVAL_2026/" class="card-btn" target="_blank"
+                            rel="noopener noreferrer" aria-label="Pythonで学ぶボイジャー2号の軌道計算を開く（外部サイト）">
+                            シミュレーションを体験する →
+                        </a>
+                    </article>
+
 
                     <article class="contents-card">
                         <div class="card-header">
@@ -376,7 +332,7 @@
                 </div>
                 <p class="section-text">
                     このサイトは、高専生が基礎科目でつまずきやすいポイントを、手軽に確認・復習できるようにするための学習ハブです。<br>
-                    各コンテンツはそれぞれのページで動作し、このサイトはその入口（ハブ）として機能します。Pythonによるボイジャー2号の惑星スイングバイ・軌道計算の展示に加え、高専の化学学習に役立つ有機化学クイズや電気化学まとめシートを掲載しています。
+                    各コンテンツはそれぞれのページで動作し、このサイトはその入口（ハブ）として機能します。化学のクイズ・まとめシートに加え、数学・物理・プログラミングを組み合わせた探究的なコンテンツも掲載しています。
                 </p>
                 <ul class="feature-list">
                     <li>
@@ -446,7 +402,6 @@
             <nav class="footer-nav" aria-label="フッターメニュー">
                 <ul>
                     <li><a href="#home">ホーム</a></li>
-                    <li><a href="#festival">高専祭展示</a></li>
                     <li><a href="#contents">学習コンテンツ</a></li>
                     <li><a href="#about">サイトについて</a></li>
                     <li><a href="#faq">FAQ</a></li>
